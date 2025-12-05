@@ -1,6 +1,6 @@
 import keras
 from datetime import datetime
-
+import numpy as np
 def train_model(model, X_train, y_train, model_name, epochs=50, early_stopping=True, patience=50, verbose = 1):
     
     log_dir = f"logs/{model_name}"
@@ -54,6 +54,40 @@ def eval_model(model, X_test, y_test, model_name=None):
     
     return test_loss, test_mae, r2
 
+def eval_classification(
+    model: keras.Model, 
+    X_test: np.ndarray, 
+    y_test: np.ndarray, 
+    class_names: list[str] = None,
+    model_name: str = None
+) -> tuple[float, float]:
+    """Evaluate classification model and display confusion matrix."""
+    import numpy as np
+    import matplotlib.pyplot as plt
+    from sklearn.metrics import confusion_matrix, classification_report, ConfusionMatrixDisplay
+    
+    test_loss, test_acc = model.evaluate(X_test, y_test, verbose=0)
+    y_pred = np.argmax(model.predict(X_test, verbose=0), axis=1)
+    
+    print(f"\n{'='*50}")
+    print(f"  {model_name or 'Model'} - Classification Results")
+    print(f"{'='*50}")
+    print(f"  Test Loss:     {test_loss:.4f}")
+    print(f"  Test Accuracy: {test_acc:.4f} ({test_acc*100:.2f}%)")
+    print(f"{'='*50}\n")
+    
+    print(classification_report(y_test, y_pred, target_names=class_names))
+    
+    cm = confusion_matrix(y_test, y_pred)
+    fig, ax = plt.subplots(figsize=(10, 8))
+    disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=class_names)
+    disp.plot(ax=ax, cmap='Blues', values_format='d')
+    plt.title(f"{model_name or 'Model'} - Confusion Matrix")
+    plt.xticks(rotation=45, ha='right')
+    plt.tight_layout()
+    plt.show()
+    
+    return test_loss, test_acc
 
 
 def start_tensorboard(logs_dir='logs', port=6006):
