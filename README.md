@@ -1,6 +1,6 @@
 # LectureNotes
 
-Repository for lecture notes, scripts and notebooks for the Machine Learning course.
+Repository for lecture notes, scripts and notebooks for the NDL3 Deep Learning course.
 
 ## Structure
 
