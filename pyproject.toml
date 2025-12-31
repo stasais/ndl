@@ -1,18 +1,27 @@
 [project]
-name = "lecturenotes"
+name = "ndl"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "azureml>=0.2.7",
-    "ipykernel>=7.1.0",
-    "keras>=3.12.0",
-    "matplotlib>=3.10.7",
-    "pandas>=2.3.3",
-    "plotly>=6.5.0",
-    "scikit-image>=0.25.2",
-    "scikit-learn>=1.7.2",
-    "tensorboard>=2.20.0",
-    "tensorflow>=2.20.0",
+    "numpy>=2.2.0",
+    "pandas>=2.3.0",
+    "matplotlib>=3.10.0",
+    "scikit-learn>=1.7.0",
+    "scikit-image>=0.24.0",
+    "plotly>=5.0.0",
+    "ipywidgets>=8.0.0",
+    "tqdm>=4.66.0",
+    "nbformat>=4.2.0",
+    "ipykernel>=6.0.0",
+    "pyMLaux @ git+https://github.com/UBod/pyMLaux.git",
+    "ucimlrepo>=0.0.3",
+    # TensorFlow: Linux with CUDA, Mac without
+    "tensorflow[and-cuda]>=2.15.0; sys_platform == 'linux'",
+    "tensorflow>=2.15.0; sys_platform == 'darwin'",
+    "scikeras>=0.13.0",
 ]
+
+[project.optional-dependencies]
+air = []  # For Mac: uv sync --extra air (no extra deps, just marks intent)
