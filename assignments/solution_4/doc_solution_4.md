@@ -1,6 +1,8 @@
 # Solution Assignment 4
 **Buinitskii Stanislav**
 
+**Repository:** https://github.com/stasais/ndl/tree/assignment-4-done
+
 ## Exercise 1: Extended Random Search
 
 ### Part a) Extending the Hyperparameter Search
