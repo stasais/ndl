@@ -132,7 +132,7 @@ def start_tensorboard(logs_dir='logs', port=6006):
     
     # Get hostname and construct URL
     hostname = socket.gethostname()
-    url = f"https://{hostname}-{port}.swedencentral.instances.azureml.ms"
+    url = f"http://localhost:{port}"
     
     print("=" * 70)
     print("📊 TensorBoard Setup Instructions")

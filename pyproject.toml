@@ -1,5 +1,5 @@
 [project]
-name = "lecturenotes"
+name = "ndl"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -23,3 +23,6 @@ dependencies = [
     "tensorflow>=2.20.0",
     "torchinfo>=1.8.0",
 ]
+
+[project.optional-dependencies]
+air = []  # For Mac: uv sync --extra air (no extra deps, just marks intent)

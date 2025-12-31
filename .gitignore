@@ -3,6 +3,9 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# TensorBoard logs
+**/logs/
+
 # C extensions
 *.so
 
