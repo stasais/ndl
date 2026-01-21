@@ -5,14 +5,21 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "accelerate>=1.12.0",
     "azureml>=0.2.7",
+    "datasets>=4.5.0",
+    "evaluate>=0.4.6",
     "ipykernel>=7.1.0",
     "keras>=3.12.0",
     "matplotlib>=3.10.7",
+    "numpy>=2.3.5",
     "pandas>=2.3.3",
     "plotly>=6.5.0",
+    "plotnine>=0.15.2",
     "scikit-image>=0.25.2",
     "scikit-learn>=1.7.2",
     "tensorboard>=2.20.0",
-    "tensorflow>=2.20.0",
+    "torch>=2.9.1",
+    "torchinfo>=1.8.0",
+    "transformers>=4.57.6",
 ]
